@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eStudioLjepote.Mobile.ViewModels"
+             x:Class="eStudioLjepote.Mobile.Views.Profil">
+    <ContentPage.BindingContext>
+        <vm:KlijentProfilViewModel ></vm:KlijentProfilViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+      
+            <StackLayout>
+                <StackLayout >
+                    <Grid BackgroundColor="#4682b4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="30"/>
+
+
+                        </Grid.RowDefinitions>
+                        <Label
+                      x:Name="ClientNameLabel"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      TextColor="White"
+                      Text="{Binding ImePrezime}"
+                      
+                      HorizontalOptions="Center"
+                      Margin="10"
+                       />
+
+                    </Grid>
+                    
+                </StackLayout>
+            <ScrollView HorizontalOptions="Center">
+                <StackLayout Padding="20" HorizontalOptions="Center" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                           
+
+                          
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="Auto"></ColumnDefinition>
+                            
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Ime:" FontSize="18"  Grid.Row="0" VerticalTextAlignment="Center"  FontAttributes="Bold" WidthRequest="150"/>
+                        <Label x:Name="FirstNameLabel" Text="{Binding Ime}" FontSize="18" Grid.Row="0"  Grid.Column="1"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Prezime:   "  FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
+                        <Label x:Name="LastNameLabel" Text="{Binding Prezime}" FontSize="18" Grid.Row="1" Grid.Column="1" ></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Telefon:   " FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
+                        <Label x:Name="PhoneLabel"  Text="{Binding BrojTelefona}" FontSize="18" Grid.Row="2" Grid.Column="1"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Email:   " FontSize="18" Grid.Row="3"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
+                        <Label x:Name="EmailLable"  Text="{Binding Email}" FontSize="18" Grid.Row="3" Grid.Column="1"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Grad:   " FontSize="18" Grid.Row="6"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
+                        <Label x:Name="CityNameLabel"  Text="{Binding Grad}" FontSize="18" Grid.Row="4" Grid.Column="1"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Username:   " FontSize="18" Grid.Row="7"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
+                        <Label x:Name="UsernameLabel"  Text="{Binding Username}" FontSize="18" Grid.Row="5" Grid.Column="1"></Label>
+                    </StackLayout>
+                
+                </StackLayout>
+
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eStudioLjepote.Mobile.ViewModels"
+             x:Class="eStudioLjepote.Mobile.Views.RezeracijeDetaljiPage">
+    <ContentPage.BindingContext>
+        <vm:RezervacijaDetaljiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+        <StackLayout Padding="20" HorizontalOptions="Center" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    
+
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="Auto"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Usluga:" FontSize="18"  Grid.Row="0" VerticalTextAlignment="Center"  FontAttributes="Bold" WidthRequest="150"/>
+                <Label x:Name="Naziv" Text="{Binding Naziv}" FontSize="18" Grid.Row="0"  Grid.Column="1"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Status:   "  FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
+                <Label x:Name="Status" Text="{Binding Status}" FontSize="18" Grid.Row="1" Grid.Column="1" ></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+              
+             
+
+
+            </StackLayout>
+
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

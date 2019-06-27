@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eStudioLjepote.Mobile.ViewModels"
+             xmlns:vm1="clr-namespace:eStudioLjepote.Mobile.Views"
+             x:Class="eStudioLjepote.Mobile.Views.RezervacijeAddPage">
+    <ContentPage.BindingContext>
+        <vm1:RezervacijaAddViewModel ></vm1:RezervacijaAddViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="50">
+            <Label Text="Datum:"></Label>
+            <DatePicker x:Name="ResrvationDatePicker"/>
+            <Label Text="Vrijeme:"></Label>
+            <TimePicker x:Name="TimePickerReservation"></TimePicker>
+            <Picker ItemsSource="{Binding UslugeList}" x:Name="UslugeListReservation" SelectedItem="{Binding SelectedUsluga}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+            <Entry  x:Name="BrojGostiju" Placeholder="Broj gostiju" Text="{Binding BrojGostiju}"  />
+            <StackLayout Orientation="Horizontal">
+                <Button Clicked="AddReservaction_Clicked"   Text="Sacuvaj" x:Name="AddReservaction"></Button>
+                
+            </StackLayout>
+
+         
+
+              
+             
+            </StackLayout>
+
+
+       
+    </ContentPage.Content>
+</ContentPage>

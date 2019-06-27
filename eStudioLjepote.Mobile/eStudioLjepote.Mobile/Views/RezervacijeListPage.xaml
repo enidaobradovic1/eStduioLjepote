@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eStudioLjepote.Mobile.ViewModels"
+             x:Class="eStudioLjepote.Mobile.Views.RezervacijeListPage">
+    <ContentPage.BindingContext>
+        <vm:RezervaicijeListeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label Text="Reyervacije" FontSize="15" HorizontalTextAlignment="Center" Margin="20"/>
+            <ListView x:Name="ReservationsList" RowHeight="80"  ItemsSource="{Binding RezervacijeList}" ItemTapped="ReservationsList_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="1" Padding="5" Orientation="Horizontal">
+                                    <Label Text="{Binding DatumRezervacije}" FontAttributes="Bold" Margin="30" WidthRequest="200"></Label>
+                                    <Label Text="{Binding Vrijeme}"  Margin="30"></Label>
+                                    
+                                       
+                                        
+                                    
+
+
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Nova rezervacija" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

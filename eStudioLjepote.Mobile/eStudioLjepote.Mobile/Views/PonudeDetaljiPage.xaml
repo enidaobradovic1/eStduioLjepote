@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:eStudioLjepote.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:eStudioLjepote.Mobile.Converters"
+             x:Class="eStudioLjepote.Mobile.Views.PonudeDetaljiPage">
+    <ContentPage.BindingContext>
+        <vm:UslugeDeljatiViewModel ></vm:UslugeDeljatiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+          
+                <StackLayout Padding="20" HorizontalOptions="Center" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+
+
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="Auto"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Naziv:" FontSize="18"  Grid.Row="0" VerticalTextAlignment="Center"  FontAttributes="Bold" WidthRequest="150"/>
+                        <Label x:Name="Naziv" Text="{Binding Naziv}" FontSize="18" Grid.Row="0"  Grid.Column="1"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Cijena:   "  FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
+                        <Label x:Name="Cijena" Text="{Binding Cijena}" FontSize="18" Grid.Row="1" Grid.Column="1" ></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Opis:   " FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
+                        <Label x:Name="Opis"  Text="{Binding Opis}" FontSize="18" Grid.Row="2" Grid.Column="1"></Label>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Ocjena"></Label>
+                        <Entry  x:Name="RateInput" Text="{Binding Ocjena}" HorizontalOptions="Start" VerticalOptions="Center" />
+                        <Button x:Name="RateButton"  Clicked="RateButton_Clicked"  Text="Ocijeni"></Button>
+
+
+                    </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Preporucujemo Vam: "></Label>
+                 
+                    <ListView ItemTapped="ListView_ItemTapped"  ItemsSource="{Binding UslugeList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout>
+                                            <Image  Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                        </StackLayout>
+                                        <StackLayout Padding="10" Orientation="Vertical">
+                                            <Label Text="{Binding Naziv}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                            <Label Text="{Binding Opis}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+            </StackLayout>
+
+            
+         
+
+          
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
